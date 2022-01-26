@@ -2,15 +2,15 @@
 
 # custom settings
 
-output_filename='text'
+output_filename='LanternFinalReport'
 output_directory='public'
-siteurl=''
+siteurl='https://nulib-oer.github.io/lantern-report/'
 
 output_formats() {
     html
-    #pdf
-    #epub
-    #docx
+    pdf
+    epub
+    docx
 }
 
 # utilities
