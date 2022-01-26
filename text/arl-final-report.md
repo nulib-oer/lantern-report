@@ -1,3 +1,5 @@
+# Report
+
 Northwestern University Libraries was awarded a grant from [the Association of Research Libraries Venture Fund](https://www.arl.org/news/arl-launches-venture-fund-to-support-research-and-development-in-member-libraries-proposals-due-february-28/) to develop a digital publishing toolkit for librarians who support open educational resources (OER) publishing on their campuses. This report documents the outcomes and future for our project, which we've named *Lantern*, available here: <https://github.com/nulib-oer/lantern>
 
 Lantern is prototype that applies *minimal computing* principles to the production, hosting, and maintenance of OER. At its core, Lantern is a script, template, and documentation that makes it easier to use [Pandoc](http://pandoc.org/) and [GitHub](https://github.com/) to produce and distribute open textbooks in multiple formats, such as HTML, PDF, EPUB, and DOCX. Lantern produces OER content in formats that make it easier to publish, preserve, and reuse by students, faculty, and librarians.
