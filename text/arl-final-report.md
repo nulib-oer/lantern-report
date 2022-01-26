@@ -30,23 +30,23 @@ Lantern was inspired by *minimal computing*. Minimal computing refers to "comput
 
 Lantern's emphasis on multiformat static outputs, non-proprietary file formats, portability, and free-of-charge software are intended to support ARL's commitment to enduring and barrier-free access to information. Markdown is an excellent choice for this goal. We use it as the source format from which we can generate PDF, HTML, and EPUB versions of the OER. Here is an example of Markdown source code:
 
-\# Chapter Title
+```
+# Chapter Title
 
-Introductory paragraph text with \*\*bold\*\* and \*italic\* text.
+Introductory paragraph text with **bold** and *italic* text.
 
-\## Section Heading
+## Section Heading
 
 Introductory paragraph for the section.
 
-Another paragraph, but with a \[link to a website\](https://example.com).
+Another paragraph, but with a [link to a website](https://example.com).
 
-\### Subsection HeadingMore content, but in list form:
+### Subsection HeadingMore content, but in list form:
 
-\- list item
-
-\- list item
-
-\- list item
+- list item
+- list item
+- list item
+```
 
 > The idea is to identify logical structures in your document (a title, sections, subsections, footnotes, etc.), mark them with some unobtrusive characters, and then "compile" the resulting text with a typesetting interpreter which will format the document consistently, according to a specified style. \-\--Dennis Tenen and Grant Wythoff, \"[Sustainable Authorship in Plain Text using Pandoc and Markdown](https://programminghistorian.org/en/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown)\"
 
