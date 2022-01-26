@@ -1,4 +1,6 @@
-## Summary of how funds were spent
+# Appendix
+
+## Summary of Grant Expenses
 
 In our original proposal we budgeted \$2,007 for an in-person training event. With the switch to remote work, we altered our budget to commit \$2,500 to pay honoraria of \$500 each to librarians from across the country to do an in-depth review of the toolkit.
 
