@@ -86,6 +86,18 @@
 }
 
 
+% table settings
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 
 % Content Starts Here
 \begin{document}
@@ -122,41 +134,12 @@ Libraries}}
 \restoregeometry
 % ---- End of Half Title Page ----
 
-% Do not show page numbers on colophon page
-\thispagestyle{empty}
-
-\begin{flushleft}
-
-\textbf{Copyright \textcopyright{}   \\
-License: \booklicense}\\[11pt] 
-
-
-For permissions beyond the scope of this license, visit 
-
-\vspace*{\fill}
-
-\begin{description}
-  \item[Recommended Citation] \hfill \\ 
-  \item[Publisher] \hfill \\ , 
-  \item[Date] \hfill \\ 
-          \item[Subjects] \hfill \\ 
-  \item[keywords] \hfill \\ 
-  
-\end{description}
-
-
-\vspace*{\fill}
-
-This book was typeset using \LaTeX{} software and processed with \href{https://pandoc.org}{Pandoc} using the \href{http://lantern.northwestern.pub}{Lantern} publishing workflow.\\
-
-\end{flushleft}
 
 % A title page resets the page # to 1, but the second title page
 % was actually page 3. So add two to page counter.
 \addtocounter{page}{2}
 
 % The asterisk excludes chapter from the table of contents.
-\chapter*{About this Book}
 This report discusses the origin, development, and future of \emph{Lantern}, a
 minimal computing toolkit for publishing open educational resources.
 
