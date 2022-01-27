@@ -36,11 +36,11 @@ paper:
 
 papersize: a4 # a4, a5, letter
 fontsize: 12pt
-mainfont: DejaVu serif
-sansfont: DejaVu sans
-monofont: DejaVu sansmono
-mathfont: Latin Modern Math
+#mainfont: DejaVu serif
+#sansfont: DejaVu sans
+#monofont: DejaVu sansmono
+#mathfont: Latin Modern Math
 # available fonts: https://wiki.contextgarden.net/ConTeXt_distribution%27s_Fonts
-linkcolor: Sapphire 
+#linkcolor: Sapphire 
 # available colors: https://wiki.contextgarden.net/Color#Crayola_crayon_colors
 linkstyle: bold # normal, bold, slanted, boldslanted, type, cap, small

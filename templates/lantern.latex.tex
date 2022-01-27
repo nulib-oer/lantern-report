@@ -111,6 +111,31 @@ $if(csl-refs)$
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 $endif$
 
+% table settings
+
+$if(tables)$
+\usepackage{longtable,booktabs,array}
+$if(multirow)$
+\usepackage{multirow}
+$endif$
+\usepackage{calc} % for calculating minipage widths
+$if(beamer)$
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+$else$
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+$endif$
+$endif$
 
 % Content Starts Here
 \begin{document}
@@ -154,6 +179,7 @@ $endif$
 \restoregeometry
 % ---- End of Half Title Page ----
 
+$if(copyright)$
 % Do not show page numbers on colophon page
 \thispagestyle{empty}
 
@@ -217,12 +243,13 @@ This book was typeset using \LaTeX{} software and processed with \href{https://p
 
 \end{flushleft}
 
+$endif$
+
 % A title page resets the page # to 1, but the second title page
 % was actually page 3. So add two to page counter.
 \addtocounter{page}{2}
 
 % The asterisk excludes chapter from the table of contents.
-\chapter*{About this Book}
 $description$
 
 % Three-level Table of Contents
