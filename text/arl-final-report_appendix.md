@@ -10,26 +10,15 @@ Fortunately, we hired a Northwestern Libraries colleague to complete the accessi
 
 In the end, \$441.26 was left unspent due to unforeseen student employee scheduling issues.
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Item                                               Description                                                                                      Cost
-  -------------------------------------------------- ------------------------------------------------------------------------------------------------ -----------------------
-  Research and Development Assistant                 Research and test software for possible inclusion in the toolkit                                 \$1,639.62
-
-  Instructional Design and Communication Assistant   Assist in the creation of user-facing documentation, tutorials, and guides                       \$3,279.25
-
-  Document Production Assistant                      Assist with PDF, HTML, EPUB, and DOCX templating                                                 \$1,639.63
-
-  Employee Fringe Benefits                           Standard benefits paid to graduate student employees                                             \$67.00
-
-  Accessibility Audit                                Specialist to provide an accessibility audit on sample output files                              \$1,000.00
-
-  Graphic Design services                            To develop a logo for the completed project website                                              \$500.00
-
-  Librarian Review Panel                             Six librarians selected to review and provide feedback on an pre-release version of the tookit   \$3,000.00
-
-  **TOTAL SPENT**                                                                                                                                     **(\$11,125.50)**
-
-  TOTAL AWARDED                                                                                                                                       \$11,566.76
-
-  REMAINDER                                                                                                                                           441.26
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Item                                             | Description                                                                                    | Cost         |
+|--------------------------------------------------|------------------------------------------------------------------------------------------------|--------------|
+| Research and Development Assistant               | Research and test software for possible inclusion in the toolkit                               | $1,639.62    |
+| Instructional Design and Communication Assistant | Assist in the creation of user-facing documentation, tutorials, and guides                     | $3,279.25    |
+| Document Production Assistant                    | Assist with PDF, HTML, EPUB, and DOCX templating                                               | $1,639.63    |
+| Employee Fringe Benefits                         | Standard benefits paid to graduate student employees                                           | $67.00       |
+| Accessibility Audit                              | Specialist to provide an accessibility audit on sample output files                            | $1,000.00    |
+| Graphic Design services                          | To develop a logo for the completed project website                                            | $500.00      |
+| Librarian Review Panel                           | Six librarians selected to review and provide feedback on an pre-release version of the tookit | $3,000.00    |
+| TOTAL SPENT                                      |                                                                                                | ($11,125.50) |
+| TOTAL AWARDED                                    |                                                                                                | $11,566.76   |
+| REMAINDER                                        |                                                                                                | 441.26       |
