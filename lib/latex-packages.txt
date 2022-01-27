@@ -2,7 +2,6 @@ listings
 longtable
 graphicx
 ulem
-geometry
 setspace
 linstretch
 selnolig
@@ -13,7 +12,6 @@ mathspec
 upquote
 microtype
 csquotes
-natbib
 biblatex
 microtype
 parskip
@@ -21,3 +19,4 @@ xurl
 bookmark
 footnotehyper
 footnote
+luahbtex
