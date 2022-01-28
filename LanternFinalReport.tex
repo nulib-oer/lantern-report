@@ -1,43 +1,17 @@
-\documentclass{book}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+%  oneside,
+  openany]{book}
 
-\title{Lantern}
-\newcommand{\subtitle}{Final Report for the Association of Research Libraries}
+% Lantern variables
+
 \newcommand{\booklicense}{\href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative
 Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)}}
-
-% authors %
-\author{Chris Diaz \and Lauren McKeen McDonald}
-\newcommand{\authoraffiliation}{}
-
-% Create convenient commands \booktitle and \bookauthor
-\makeatletter
-\newcommand{\booktitle}{\@title}
-\newcommand{\bookauthor}{\@author}
-\makeatother
-
-% This utf8 declaration is not needed for versions of latex > 2018 but may
-% be helpful for older software. Eventually it may not be worth keeping.
-%\usepackage[utf8]{inputenc}  
-
-\usepackage{amsmath} % Used by equations
-\usepackage{hyperref}
-% link options
-\hypersetup{
-  colorlinks=true,
-  linkcolor=purple,
-  urlcolor=purple,
-  pdftitle={Lantern},
-  pdflang={en},
-  pdfcreator={LaTeX via pandoc}
-}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{graphicx}
-% sets image width to text body width
-\setkeys{Gin}{width=\linewidth} 
-\usepackage{xcolor}
-\definecolor{purple}{HTML}{663399}
 
 % The following dimensions specify 4.75" X 7.5" content on 6 3/8" by 9 1/4"
 % paper. The paper width and height can be tweaked as required and the content
@@ -56,36 +30,63 @@ Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)}}
 % Here is an alternative geometry for reading on letter size paper:
 % \usepackage[margin=.75in, paperwidth=8.5in, paperheight=11in]{geometry}
 
-\usepackage[normalem]{ulem} % underlined text
-
-\renewcommand{\contentsname}{Contents} 
-
-% pandoc settings %
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{TeX Gyre Heros}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Lantern},
+  pdfauthor={Chris Diaz \and Lauren McKeen McDonald},
+  pdflang={en},
+  colorlinks=true,
+  linkcolor={purple},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={purple},
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-\newenvironment{Shaded}{
-    \begin{center}
-    \begin{tabular}{|p{0.9\textwidth}|}
-    \hline\\
-    }
-    { 
-    \\\\\hline
-    \end{tabular} 
-    \end{center}
-}
-
-\newenvironment{shaded*}{
-    \begin{center}
-    \begin{tabular}{|p{0.9\textwidth}|}
-    \hline\\
-    }
-    { 
-    \\\\\hline
-    \end{tabular} 
-    \end{center}
-}
-
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
@@ -109,98 +110,75 @@ Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)}}
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 
-% table settings
-
-\usepackage{longtable,booktabs,array}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
+\title{Lantern}
 \usepackage{etoolbox}
 \makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
 \makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
+\subtitle{Final Report for the Association of Research Libraries}
+\author{true \and true}
+\date{}
 
 % Content Starts Here
+
 \begin{document}
 \frontmatter
 
 % ---- Half Title Page ----
 % current geometry will be restored after title page
-\newgeometry{top=1.75in,bottom=.5in}
+\newgeometry{top=5in,bottom=.5in}
 \begin{titlepage}
 \begin{flushleft}
 
 % Title
 \textbf{\fontsize{48}{54}\selectfont Lantern \\}
-\textbf{\large \textit{Final Report for the Association of Research
-Libraries}}
+{\color{gray}{\large Final Report for the Association of Research Libraries}}
 
-% Draw a line 4pt high
-\par\noindent\rule{\textwidth}{4pt}\\
+% Draw a line 2pt high
+\par\noindent\rule{1in}{2pt}\\
 
 % authors
-\begin{flushright}
 
-      \textbf{Chris Diaz}, \emph{Northwestern University}\\
-      \textbf{Lauren McKeen McDonald}, \emph{Northwestern University}\\
-  
-\end{flushright}
+\textit{Chris Diaz, Lauren McKeen McDonald}\\
+
+\vspace{1in}
+This report discusses the origin, development, and future of \emph{Lantern}, a
+minimal computing toolkit for publishing open educational resources.
+\emph{Lantern} was developed with support from ARL's Venture fund.
 
 % \vspace{\fill}
-\vspace{\fill}
-
 \end{flushleft}
+
   
 \end{titlepage}
 \restoregeometry
 % ---- End of Half Title Page ----
 
-% Do not show page numbers on colophon page
-\thispagestyle{empty}
-
-\begin{flushleft}
-
-\textbf{Copyright \textcopyright{} 2022  Chris Diaz \& Lauren McKeen
-McDonald\\
-License: \booklicense}\\[11pt] 
-
-
-For permissions beyond the scope of this license, visit 
-
-\vspace*{\fill}
-
-\begin{description}
-  \item[Recommended Citation] \hfill \\ 
-  \item[Publisher] \hfill \\ , 
-  \item[Date] \hfill \\ 2022
-          \item[Subjects] \hfill \\ 
-  \item[keywords] \hfill \\ 
-  
-\end{description}
-
-
-\vspace*{\fill}
-
-This book was typeset using \LaTeX{} software and processed with \href{https://pandoc.org}{Pandoc} using the \href{http://lantern.northwestern.pub}{Lantern} publishing workflow.\\
-
-\end{flushleft}
-
 
 % A title page resets the page # to 1, but the second title page
 % was actually page 3. So add two to page counter.
-\addtocounter{page}{2}
+%\addtocounter{page}{2}
 
 % The asterisk excludes chapter from the table of contents.
-This report discusses the origin, development, and future of \emph{Lantern}, a
-minimal computing toolkit for publishing open educational resources.
-\emph{Lantern} was developed with support from ARL's Venture fund.
 
 % Three-level Table of Contents
-\setcounter{tocdepth}{3}
-\tableofcontents
+%\setcounter{tocdepth}{3}
+%\tableofcontents
 
 \mainmatter
 
@@ -494,6 +472,23 @@ communication} and has the potential to be an important option for
 Lantern can provide an on-ramp to more librarians interested in applying
 minimal computing techniques to open education initiatives.
 
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-tenen_sustainable_2014}{}}%
+Tenen, Dennis, and Grant Wythoff. 2014. {``Sustainable {Authorship} in {Plain}
+{Text} Using {Pandoc} and {Markdown}.''} \emph{Programming Historian}.
+\url{https://doi.org/10.46430/phen0041}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-noauthor_what_nodate}{}}%
+{``What Is {Minimal} {Computing}?''} n.d. \emph{Minimal Computing: A Working
+Group of GO::DH}. Accessed January 26, 2022.
+\url{https://go-dh.github.io/mincomp/about/}.
+
+\end{CSLReferences}
+
 \hypertarget{appendix}{%
 \chapter{Appendix}\label{appendix}}
 
@@ -550,9 +545,313 @@ REMAINDER & & 441.26 \\
 \bottomrule
 \end{longtable}
 
-\hypertarget{bibliography}{%
-\chapter*{References}\label{bibliography}}
-\addcontentsline{toc}{chapter}{References}
+\backmatter
+\end{document}
+
+
+% from pandoc LaTeX template
+
+%%%\maketitle
+%%%%%%
+%%%%\renewcommand*\contentsname{Contents}
+%%%{
+%%\hypersetup{linkcolor=}
+%%\setcounter{tocdepth}{2}
+%\tableofcontents
+%}
+%%%%%%%\mainmatter
+%%\hypertarget{report}{%
+\chapter{Report}\label{report}}
+
+Northwestern University Libraries was awarded a grant from
+\href{https://www.arl.org/news/arl-launches-venture-fund-to-support-research-and-development-in-member-libraries-proposals-due-february-28/}{the
+Association of Research Libraries Venture Fund} to develop a digital
+publishing toolkit for librarians who support open educational resources (OER)
+publishing on their campuses. This report documents the outcomes and future
+for our project, which we've named \emph{Lantern}, available here:
+\url{https://github.com/nulib-oer/lantern}
+
+Lantern is prototype that applies \emph{minimal computing} principles to the
+production, hosting, and maintenance of OER. At its core, Lantern is a script,
+template, and documentation that makes it easier to use
+\href{http://pandoc.org/}{Pandoc} and \href{https://github.com/}{GitHub} to
+produce and distribute open textbooks in multiple formats, such as HTML, PDF,
+EPUB, and DOCX. Lantern produces OER content in formats that make it easier to
+publish, preserve, and reuse by students, faculty, and librarians.
+
+\hypertarget{why-did-we-create-lantern}{%
+\section{Why did we create Lantern?}\label{why-did-we-create-lantern}}
+
+OER programs at academic libraries typically license a publishing platform
+from a vendor or develop their own with open source software. Most publishing
+platforms are maintained by product managers, software developers, and other
+professionals who are responsible for writing documentation, adding features,
+patching security vulnerabilities, and updating software dependencies. This is
+costly to sustain and creates a risk for
+\href{https://en.wikipedia.org/wiki/Vendor_lock-in}{vendor lock-in}.
+
+Lantern approaches this problem in the following ways:
+
+\begin{itemize}
+\item
+  \textbf{Minimal technology stack:} Lantern was designed to use the fewest
+  amount of software dependencies possible. Each dependency is cross-platform
+  open source software that can run on any machine.
+\item
+  \textbf{Multiformat static outputs:} Lantern generates static HTML, PDF,
+  EPUB, and DOCX files that can be distributed by web hosting service without
+  setting up any databases, server-side application software, or content
+  management systems. These files can also be added to preservation systems in
+  compressed or uncompressed formats.
+\item
+  \textbf{Non-proprietary:} Lantern teaches the value of non-proprietary plain
+  text documents for accessibility and preservation.
+\item
+  \textbf{Portability:} Lantern can be used the web, in the form of a GitHub
+  repository, or as part of a standalone production environment, where users
+  can install and run the required programs on their own.
+\item
+  \textbf{Free:} Lantern is distributed for free and under an open license.
+  The first edition of Lantern is available on GitHub and assumes that the
+  user has created a free GitHub account, but Lantern itself can be
+  \href{https://github.com/nulib-oer/lantern/archive/refs/heads/main.zip}{downloaded
+  as a .zip file} and used without a GitHub account by anyone.
+\item
+  \textbf{Transferable skills:} We make no promises that Lantern will be
+  available and usable forever. We do, however, believe that the skills and
+  knowledge introduced in Lantern's workflow are applicable to a variety of
+  web and digital projects.
+\end{itemize}
+
+With Lantern, we hope to demystify a few developer tools (text editors,
+GitHub, and open-source software) for beginners interested in digital
+publishing by connecting these technologies to concepts, such as metadata,
+preservation, and information accessibility.
+
+\hypertarget{enduring-and-barrier-free-access-to-information}{%
+\section{Enduring and Barrier-free Access to
+Information}\label{enduring-and-barrier-free-access-to-information}}
+
+Lantern was inspired by \emph{minimal computing}. Minimal computing refers to
+``computing done under some set of significant constraints of hardware,
+software, education, network capacity, power, or other factors''
+(\protect\hyperlink{ref-noauthor_what_nodate}{{``What Is {Minimal}
+{Computing}?''} n.d.}). For Lantern, we decided to set constraints on our
+technology choices to minimize costs and technical obsolescence for the
+preservation and dissemination of digital, educational materials.
+
+Lantern's emphasis on multiformat static outputs, non-proprietary file
+formats, portability, and free-of-charge software are intended to support
+ARL's commitment to enduring and barrier-free access to information. Markdown
+is an excellent choice for this goal. We use it as the source format from
+which we can generate PDF, HTML, and EPUB versions of the OER. Here is an
+example of Markdown source code:
+
+\begin{verbatim}
+Introductory paragraph text with **bold** and *italic* text.
+
+## Section Heading
+
+Introductory paragraph for the section.
+
+Another paragraph, but with a [link to a website](https://example.com).
+
+### Subsection HeadingMore content, but in list form:
+
+- list item
+- list item
+- list item
+\end{verbatim}
+
+\begin{quote}
+The idea is to identify logical structures in your document (a title,
+sections, subsections, footnotes, etc.), mark them with some unobtrusive
+characters, and then ``compile'' the resulting text with a typesetting
+interpreter which will format the document consistently, according to a
+specified style. ---(\protect\hyperlink{ref-tenen_sustainable_2014}{Tenen and
+Wythoff 2014})
+\end{quote}
+
+\href{https://github.com/nulib-oer/lantern/wiki}{Lantern's documentation}
+walks users through the conversion and Markdown typesetting process. The basic
+workflow can be completed entirely online, using only a web browser and free a
+GitHub.com account. No installation of any software is required. Most users go
+from manuscript to published OER in an hour.
+
+While the basic workflow relies on GitHub to perform most of the processing
+and hosting work, Lantern can be downloaded and used on any operating system,
+removing GitHub as a dependency. Users who opt to run Lantern on their own
+machines will have to install some software on their own. Publishing the OER
+without GitHub requires access to a basic web hosting service. Since Lantern
+produces static HTML, there are numerous free hosting options available, such
+as
+\href{https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank\&all-free-tier.sort-order=asc\&awsf.Free\%20Tier\%20Types=*all\&awsf.Free\%20Tier\%20Categories=*all}{Amazon
+Web Services (free tier)} and \href{https://app.netlify.com/drop}{Netlify}.
+
+Upon completing an OER project with Lantern, users will have the files for a
+website, PDF, EPUB, DOCX, and a source directory of plain text files for
+dissemination and preservation of the content.
+
+\hypertarget{librarian-review-panel}{%
+\section{Librarian Review Panel}\label{librarian-review-panel}}
+
+We wanted to make sure that Lantern, as an idea, was worth developing further.
+We assembled a panel of six librarians at academic libraries around the
+country to test and review an early version of Lantern. Each librarian was
+paid a stipend to review the documentation, complete two tutorials, and
+discuss their experiences. Some quotes from our interviews:
+
+\begin{quote}
+"You've provided an environment in which librarians who are not programmers
+could experiment with using markdown. There's a lot that's unfamiliar, and I
+feel like what you've done is to make it more accessible to people like me."
+-- Anita Walz, Assistant Director of Open Education, Virginia Tech University
+Libraries
+
+``With Lantern, OER creation is made very simple. I could follow along and
+actually get a textbook produced.'' -Kathy Clark, Director, Phillips Library,
+Aurora University
+
+``With Lantern, you can take files that someone gives you and create~a website
+without having to do anything, really. I could take a 300-page Word document
+textbook and easily turn it into a website." -Tim Fluhr, Head of Library
+Services, Illinois Institute of Technology
+\end{quote}
+
+This process generated numerous great ideas, resulting in a major overhaul of
+the original documentation and workflow. For this iteration of \emph{Lantern},
+we provide documentation for the ``GitHub workflow'' and minimal guidance on
+the ``Desktop workflow'' (i.e.~standalone environment, \emph{without} GitHub).
+Future iterations will provide more helpful instruction on using Lantern in a
+stanadlone production environment on the user's computer.
+
+\hypertarget{deliverables}{%
+\section{Deliverables}\label{deliverables}}
+
+We produced the following items with ARL grant support:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/nulib-oer/lantern}{GitHub repository template} for
+  creating and publishing an OER textbook
+\item
+  \href{https://github.com/nulib-oer/lantern/wiki/}{Documentation} containing
+  instructions, guides, and recommended resources
+\item
+  Extensible
+  \href{https://github.com/nulib-oer/lantern/tree/main/templates}{templates}
+  for HTML, PDF, and EPUB output formats
+\item
+  \href{https://github.com/nulib-oer/lantern/blob/main/lantern.sh}{Scripts}
+  for converting from Microsoft Word to Markdown and Markdown to various
+  output formats
+\end{itemize}
+
+In addition to the above, our work involved:
+
+\begin{itemize}
+\tightlist
+\item
+  The creation of Lantern user personas
+\item
+  In-depth user testing and interviews with six librarians
+\item
+  An accessibility audit of the project website and output templates
+\item
+  Creation of a logo and custom book cover templates
+\end{itemize}
+
+\hypertarget{scalability}{%
+\section{Scalability}\label{scalability}}
+
+Lantern is designed to be a template for using
+\href{https://pandoc.org/}{Pandoc} as a publishing tool. Pandoc is a popular
+document converter that can handle dozens of file formats. While powerful,
+Pandoc can be challenging to learn without a strong familiarity with command
+line programs and markup languages (like HTML). Lantern provides the
+fundamentals (instructions, explanations, and templates) from which users can
+explore numerous customizations for their projects. Our hope is that Lantern
+can be used as-is for open textbook projects, but also be modified for a
+variety of text-based digital web projects.
+
+We have ideas on how Lantern could be used by content creators beyond the open
+textbook paradigm. While the primary audience is currently librarians and the
+primary output is OER, Lantern's methods could be used to easily turn meeting
+notes, slide decks, conference proceedings, presentations, personal writing
+projects and more into static websites and PDFs. In other words, we can see
+how the variety of use cases could expand Lantern's use beyond its original
+intention.
+
+\hypertarget{sustainability}{%
+\section{Sustainability}\label{sustainability}}
+
+We have just started using Lantern on OER projects at Northwestern University,
+so it is too soon to tell if Lantern as a software is sustainable. We,
+personally, are committed to using and maintaining Lantern on Northwestern OER
+projects for as long as Lantern meets the needs of our OER authors.
+
+We are confident, however, that the publication outputs produced by Lantern
+can be sustained in terms of access and preservation by libraries. Lantern
+outputs produce multiple formats (Markdown, HTML, PDF, EPUB, and DOCX) as
+static files. The flexibility of multiple, non-proprietary output formats
+gives librarians some assurances future software will be able to read and
+compile the files for later use.
+
+\hypertarget{future}{%
+\section{Future}\label{future}}
+
+We have three priorities for Lantern: (1) use Lantern to publish OER textbooks
+by Northwestern University authors, (2) extend Lantern to support more use
+cases, and (3) promote Lantern at academic librarian conferences.
+
+First, we are currently using Lantern on OER projects Northwestern University
+Libraries supports, developing and releasing new features as needed (such as
+full-text search). We began by migrating two OER projects from
+\href{https://bookdown.org/}{Bookdown} to Lantern\footnote{Bookdown is a major
+  influence for the development of Lantern. We strongly recommend Bookdown to
+  any users who are familiar with the R programming language. We developed
+  Lantern as an alternative to Bookdown in order to provide a similar option
+  to user who are unfamiliar with the R programming language (and therefore do
+  not need the features Bookdown provides to R users).}:
+\href{https://emps.northwestern.pub/}{\textbf{\emph{Empirical Methods in
+Political Science: An Introduction}}} by Jean Clipperton and
+\textbf{\emph{Introduction to Material Science and Engineering}} by Kenneth
+Shull, Jonathan Emery, and Jacob Kelter.
+
+Second, we were thrilled to discover new use cases for Lantern from the
+Librarian Review Panel interviews, including:
+
+\begin{itemize}
+\item
+  \emph{Convert LaTeX to EPUB:} LaTeX is a popular typesetting language for
+  STEM disciplines, but PDFs generated from LaTeX are not accessible. EPUB,
+  however, is a more accessible format than LaTeX and PDF. Lantern could be
+  extended to support a workflow that generates EPUB from LaTeX source.
+\item
+  \emph{Create a public website from a Google Doc:} Google Docs are powerful
+  tools for collaboratively generating a document from a learning activity.
+  Instructors might want to generate a more stable and sharable version of the
+  Google Doc by converting it into a static website. Google Docs can export to
+  .DOCX or .ODT formats, which Lantern can convert to Markdown, then HTML.
+\end{itemize}
+
+Third, we will be promoting Lantern at several academic librarian conferences
+in the spring and summer of 2022. We hope to connect with potential users on
+GitHub. Lantern users who have questions can use the
+\href{https://github.com/nulib-oer/lantern/discussions}{discussion forum} or
+\href{https://github.com/nulib-oer/lantern/issues}{issue tracker} to report a
+bug or request a feature.
+
+We believe that Lantern is aligned with the movement working toward
+\href{https://investinopen.org/about/}{an open infrastructure for scholarly
+communication} and has the potential to be an important option for
+\href{https://mindthegap.pubpub.org/}{open source publishing tools}. We hope
+Lantern can provide an on-ramp to more librarians interested in applying
+minimal computing techniques to open education initiatives.
+
+\hypertarget{references}{%
+\section{References}\label{references}}
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
@@ -568,5 +867,61 @@ Group of GO::DH}. Accessed January 26, 2022.
 
 \end{CSLReferences}
 
-\backmatter
-\end{document}
+\hypertarget{appendix}{%
+\chapter{Appendix}\label{appendix}}
+
+\hypertarget{summary-of-grant-expenses}{%
+\section{Summary of Grant Expenses}\label{summary-of-grant-expenses}}
+
+In our original proposal we budgeted \$2,007 for an in-person training event.
+With the switch to remote work, we altered our budget to commit \$2,500 to pay
+honoraria of \$500 each to librarians from across the country to do an
+in-depth review of the toolkit.
+
+The review was followed by a recorded Zoom interview in which received
+feedback, comments, and suggestions. In the end, we recruited six librarians
+for the review, increasing this line item to \$3000.
+
+Fortunately, we hired a Northwestern Libraries colleague to complete the
+accessibility audit for \$1000, which was much less expensive than hiring a
+specialized company.
+
+In the end, \$441.26 was left unspent due to unforeseen student employee
+scheduling issues.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2738}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5119}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1905}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Cost
+\end{minipage} \\
+\midrule
+\endhead
+Research and Development Assistant & Research and test software for possible
+inclusion in the toolkit & \$1,639.62 \\
+Instructional Design and Communication Assistant & Assist in the creation of
+user-facing documentation, tutorials, and guides & \$3,279.25 \\
+Document Production Assistant & Assist with PDF, HTML, EPUB, and DOCX
+templating & \$1,639.63 \\
+Employee Fringe Benefits & Standard benefits paid to graduate student
+employees & \$67.00 \\
+Accessibility Audit & Specialist to provide an accessibility audit on sample
+output files & \$1,000.00 \\
+Graphic Design services & To develop a logo for the completed project website
+& \$500.00 \\
+Librarian Review Panel & Six librarians selected to review and provide
+feedback on an pre-release version of the tookit & \$3,000.00 \\
+TOTAL SPENT & & (\$11,125.50) \\
+TOTAL AWARDED & & \$11,566.76 \\
+REMAINDER & & 441.26 \\
+\bottomrule
+\end{longtable}
+%
+%%\backmatter
+%%%%%\end{document}
