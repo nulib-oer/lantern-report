@@ -9,4 +9,14 @@ author:
         affiliation: Northwestern University
 
 description: |
-  This report discusses the origin, development, and future of _Lantern_, a minimal computing toolkit for publishing open educational resources.
+  This report discusses the origin, development, and future of _Lantern_, a minimal computing toolkit for publishing open educational resources. _Lantern_ was developed with support from ARL's Venture fund.
+
+publication-year: 2022
+
+copyright:
+  holder: "Chris Diaz & Lauren McKeen McDonald"
+  statement: In Copyright 
+  statement-uri: http://rightsstatements.org/vocab/InC/1.0/
+  license: Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) 
+  license-uri: https://creativecommons.org/licenses/by-nc/4.0/
+  license-logo: https://licensebuttons.net/l/by-nc/3.0/88x31.png

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/theme-switcher.css">
     <link rel="stylesheet" href="css/html.css">
     <link rel="stylesheet" href="css/custom.css">
-    <title>$title$ | $publisher.name$</title>
+    <title>$if(publisher)$$title$ | $publisher.name$$else$$title$$endif$</title>
 
     $if(math)$ $math$ $endif$
 

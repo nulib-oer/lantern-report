@@ -168,7 +168,12 @@ $if(url)$    <meta property="twitter:domain" content="$url$">$endif$
                         </dd>
                         $if(copyright.license)$
                         <dt>License</dt>
-                        <dd><a href="$copyright.license-uri$">$copyright.license$</a></dd>
+                        <dd>
+                            $if(copyright.license-logo)$
+                            <img id="license-logo" src="$copyright.license-logo$" alt="Logo for $copyright.license$">
+                            $endif$
+                            <a href="$copyright.license-uri$">$copyright.license$</a>
+                        </dd>
                         $endif$
                         $if(publisher)$
                         <dt>Publisher</dt>

@@ -22,9 +22,9 @@ number-sections: false
 #secnumdepth
 
 # citations
-#citeproc: true
-#bibliography:
-#  - references.bib
+citeproc: true
+bibliography:
+  - references.bib
 
 # code blocks
 highlight-style: pygments
