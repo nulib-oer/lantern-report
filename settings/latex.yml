@@ -37,7 +37,7 @@ pdf-engine-opts:
 variables:
   documentclass: book # book, report, article, proc
   fontsize: 11pt # 10pt (default), 11pt, 12pt
-  mainfont: TeX Gyre Heros
+  mainfont: texgyreheros-regular.otf
   sansfont:
   monofont:
   mathfont:
