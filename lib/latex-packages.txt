@@ -1,3 +1,5 @@
 ulem
 enumitem
 makecell
+tex-gyre
+tex-gyre-math
