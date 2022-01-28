@@ -2,7 +2,8 @@
 
 \title{Lantern}
 \newcommand{\subtitle}{Final Report for the Association of Research Libraries}
-\newcommand{\booklicense}{\href{}{}}
+\newcommand{\booklicense}{\href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative
+Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)}}
 
 % authors %
 \author{Chris Diaz \and Lauren McKeen McDonald}
@@ -85,6 +86,29 @@
     \end{center}
 }
 
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 % table settings
 
@@ -134,6 +158,36 @@ Libraries}}
 \restoregeometry
 % ---- End of Half Title Page ----
 
+% Do not show page numbers on colophon page
+\thispagestyle{empty}
+
+\begin{flushleft}
+
+\textbf{Copyright \textcopyright{} 2022  Chris Diaz \& Lauren McKeen
+McDonald\\
+License: \booklicense}\\[11pt] 
+
+
+For permissions beyond the scope of this license, visit 
+
+\vspace*{\fill}
+
+\begin{description}
+  \item[Recommended Citation] \hfill \\ 
+  \item[Publisher] \hfill \\ , 
+  \item[Date] \hfill \\ 2022
+          \item[Subjects] \hfill \\ 
+  \item[keywords] \hfill \\ 
+  
+\end{description}
+
+
+\vspace*{\fill}
+
+This book was typeset using \LaTeX{} software and processed with \href{https://pandoc.org}{Pandoc} using the \href{http://lantern.northwestern.pub}{Lantern} publishing workflow.\\
+
+\end{flushleft}
+
 
 % A title page resets the page # to 1, but the second title page
 % was actually page 3. So add two to page counter.
@@ -142,6 +196,7 @@ Libraries}}
 % The asterisk excludes chapter from the table of contents.
 This report discusses the origin, development, and future of \emph{Lantern}, a
 minimal computing toolkit for publishing open educational resources.
+\emph{Lantern} was developed with support from ARL's Venture fund.
 
 % Three-level Table of Contents
 \setcounter{tocdepth}{3}
@@ -190,16 +245,15 @@ Lantern approaches this problem in the following ways:
   \textbf{Multiformat static outputs:} Lantern generates static HTML, PDF,
   EPUB, and DOCX files that can be distributed by web hosting service without
   setting up any databases, server-side application software, or content
-  management systems.
+  management systems. These files can also be added to preservation systems in
+  compressed or uncompressed formats.
 \item
   \textbf{Non-proprietary:} Lantern teaches the value of non-proprietary plain
   text documents for accessibility and preservation.
 \item
-  \textbf{Portability:} Lantern is available on the web, in the form of a
-  GitHub repository, or as a standalone production environment, where users
-  can install and run the programs on their own. This gives librarians the
-  assurance that they do not need to rely on any third-party vendor to produce
-  multi-format OER.
+  \textbf{Portability:} Lantern can be used the web, in the form of a GitHub
+  repository, or as part of a standalone production environment, where users
+  can install and run the required programs on their own.
 \item
   \textbf{Free:} Lantern is distributed for free and under an open license.
   The first edition of Lantern is available on GitHub and assumes that the
@@ -209,8 +263,8 @@ Lantern approaches this problem in the following ways:
 \item
   \textbf{Transferable skills:} We make no promises that Lantern will be
   available and usable forever. We do, however, believe that the skills and
-  knowledge introduced in Lantern's documentation provide value to librarians
-  working on a variety of text-based web and digital projects.
+  knowledge introduced in Lantern's workflow are applicable to a variety of
+  web and digital projects.
 \end{itemize}
 
 With Lantern, we hope to demystify a few developer tools (text editors,
@@ -224,10 +278,11 @@ Information}\label{enduring-and-barrier-free-access-to-information}}
 
 Lantern was inspired by \emph{minimal computing}. Minimal computing refers to
 ``computing done under some set of significant constraints of hardware,
-software, education, network capacity, power, or other factors.'' For Lantern,
-we decided to set constraints on our technology choices to minimize costs and
-technical obsolescence for the preservation and dissemination of digital,
-educational materials.
+software, education, network capacity, power, or other factors''
+(\protect\hyperlink{ref-noauthor_what_nodate}{{``What Is {Minimal}
+{Computing}?''} n.d.}). For Lantern, we decided to set constraints on our
+technology choices to minimize costs and technical obsolescence for the
+preservation and dissemination of digital, educational materials.
 
 Lantern's emphasis on multiformat static outputs, non-proprietary file
 formats, portability, and free-of-charge software are intended to support
@@ -237,8 +292,6 @@ which we can generate PDF, HTML, and EPUB versions of the OER. Here is an
 example of Markdown source code:
 
 \begin{verbatim}
-# Chapter Title
-
 Introductory paragraph text with **bold** and *italic* text.
 
 ## Section Heading
@@ -259,9 +312,8 @@ The idea is to identify logical structures in your document (a title,
 sections, subsections, footnotes, etc.), mark them with some unobtrusive
 characters, and then ``compile'' the resulting text with a typesetting
 interpreter which will format the document consistently, according to a
-specified style. -\/-\/-Dennis Tenen and Grant Wythoff,
-"\href{https://programminghistorian.org/en/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown}{Sustainable
-Authorship in Plain Text using Pandoc and Markdown}"
+specified style. ---(\protect\hyperlink{ref-tenen_sustainable_2014}{Tenen and
+Wythoff 2014})
 \end{quote}
 
 \href{https://github.com/nulib-oer/lantern/wiki}{Lantern's documentation}
@@ -280,9 +332,9 @@ as
 \href{https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank\&all-free-tier.sort-order=asc\&awsf.Free\%20Tier\%20Types=*all\&awsf.Free\%20Tier\%20Categories=*all}{Amazon
 Web Services (free tier)} and \href{https://app.netlify.com/drop}{Netlify}.
 
-Upon completing an OER project with Lantern, users will have a website, PDF,
-EPUB, and a source directory of plain text files for dissemination and
-preservation of the content.
+Upon completing an OER project with Lantern, users will have the files for a
+website, PDF, EPUB, DOCX, and a source directory of plain text files for
+dissemination and preservation of the content.
 
 \hypertarget{librarian-review-panel}{%
 \section{Librarian Review Panel}\label{librarian-review-panel}}
@@ -310,26 +362,40 @@ textbook and easily turn it into a website." -Tim Fluhr, Head of Library
 Services, Illinois Institute of Technology
 \end{quote}
 
+This process generated numerous great ideas, resulting in a major overhaul of
+the original documentation and workflow. For this iteration of \emph{Lantern},
+we provide documentation for the ``GitHub workflow'' and minimal guidance on
+the ``Desktop workflow'' (i.e.~standalone environment, \emph{without} GitHub).
+Future iterations will provide more helpful instruction on using Lantern in a
+stanadlone production environment on the user's computer.
+
 \hypertarget{deliverables}{%
 \section{Deliverables}\label{deliverables}}
 
 We produced the following items with ARL grant support:
 
 \begin{itemize}
+\tightlist
 \item
-  GitHub repository template for creating and publishing an OER textbook
+  \href{https://github.com/nulib-oer/lantern}{GitHub repository template} for
+  creating and publishing an OER textbook
 \item
-  Documentation containing instructions, guides, and recommended resources
+  \href{https://github.com/nulib-oer/lantern/wiki/}{Documentation} containing
+  instructions, guides, and recommended resources
 \item
-  Extensible templates for HTML, PDF, and EPUB output formats
+  Extensible
+  \href{https://github.com/nulib-oer/lantern/tree/main/templates}{templates}
+  for HTML, PDF, and EPUB output formats
 \item
-  Scripts for converting from Microsoft Word to Markdown and Markdown to
-  various output formats
+  \href{https://github.com/nulib-oer/lantern/blob/main/lantern.sh}{Scripts}
+  for converting from Microsoft Word to Markdown and Markdown to various
+  output formats
 \end{itemize}
 
 In addition to the above, our work involved:
 
 \begin{itemize}
+\tightlist
 \item
   The creation of Lantern user personas
 \item
@@ -347,11 +413,11 @@ Lantern is designed to be a template for using
 \href{https://pandoc.org/}{Pandoc} as a publishing tool. Pandoc is a popular
 document converter that can handle dozens of file formats. While powerful,
 Pandoc can be challenging to learn without a strong familiarity with command
-line programs and plain text formats. Lantern provides the fundamentals
-(instructions, explanations, and templates) from which users can explore
-numerous customizations for their projects. Our hope is that Lantern can be
-used as-is for open textbook projects, but also be modified for a variety of
-text-based digital web projects.
+line programs and markup languages (like HTML). Lantern provides the
+fundamentals (instructions, explanations, and templates) from which users can
+explore numerous customizations for their projects. Our hope is that Lantern
+can be used as-is for open textbook projects, but also be modified for a
+variety of text-based digital web projects.
 
 We have ideas on how Lantern could be used by content creators beyond the open
 textbook paradigm. While the primary audience is currently librarians and the
@@ -374,7 +440,7 @@ can be sustained in terms of access and preservation by libraries. Lantern
 outputs produce multiple formats (Markdown, HTML, PDF, EPUB, and DOCX) as
 static files. The flexibility of multiple, non-proprietary output formats
 gives librarians some assurances future software will be able to read and
-compile the files for use.
+compile the files for later use.
 
 \hypertarget{future}{%
 \section{Future}\label{future}}
@@ -384,14 +450,14 @@ by Northwestern University authors, (2) extend Lantern to support more use
 cases, and (3) promote Lantern at academic librarian conferences.
 
 First, we are currently using Lantern on OER projects Northwestern University
-Libraries supports, developing and releasing new features as needed. We began
-by migrating two OER projects from \href{https://bookdown.org/}{Bookdown} to
-Lantern\footnote{Bookdown is a major influence for the development of Lantern.
-  We strongly recommend Bookdown to any users who are familiar with the R
-  programming language. We developed Lantern as an alternative to Bookdown in
-  order to provide a similar option to user who are unfamiliar with the R
-  programming language (and therefore do not need the features Bookdown
-  provides to R users).}:
+Libraries supports, developing and releasing new features as needed (such as
+full-text search). We began by migrating two OER projects from
+\href{https://bookdown.org/}{Bookdown} to Lantern\footnote{Bookdown is a major
+  influence for the development of Lantern. We strongly recommend Bookdown to
+  any users who are familiar with the R programming language. We developed
+  Lantern as an alternative to Bookdown in order to provide a similar option
+  to user who are unfamiliar with the R programming language (and therefore do
+  not need the features Bookdown provides to R users).}:
 \href{https://emps.northwestern.pub/}{\textbf{\emph{Empirical Methods in
 Political Science: An Introduction}}} by Jean Clipperton and
 \textbf{\emph{Introduction to Material Science and Engineering}} by Kenneth
@@ -483,6 +549,24 @@ TOTAL AWARDED & & \$11,566.76 \\
 REMAINDER & & 441.26 \\
 \bottomrule
 \end{longtable}
+
+\hypertarget{bibliography}{%
+\chapter*{References}\label{bibliography}}
+\addcontentsline{toc}{chapter}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-tenen_sustainable_2014}{}}%
+Tenen, Dennis, and Grant Wythoff. 2014. {``Sustainable {Authorship} in {Plain}
+{Text} Using {Pandoc} and {Markdown}.''} \emph{Programming Historian}.
+\url{https://doi.org/10.46430/phen0041}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-noauthor_what_nodate}{}}%
+{``What Is {Minimal} {Computing}?''} n.d. \emph{Minimal Computing: A Working
+Group of GO::DH}. Accessed January 26, 2022.
+\url{https://go-dh.github.io/mincomp/about/}.
+
+\end{CSLReferences}
 
 \backmatter
 \end{document}

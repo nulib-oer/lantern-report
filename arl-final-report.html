@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/theme-switcher.css">
     <link rel="stylesheet" href="css/html.css">
     <link rel="stylesheet" href="css/custom.css">
-    <title>Lantern | </title>
+    <title>Lantern</title>
 
     
 
@@ -43,7 +43,7 @@
                             Back to Home
                         </a>
                         <ul>                      
-                            <li><a href="arl-final-report.html">Report Chapter Title</a></li>                      
+                            <li><a href="arl-final-report.html">Report</a></li>                      
                             <li><a href="arl-final-report_appendix.html">Appendix</a></li>                         
                         </ul>
                         <a href="#top" class="back">
@@ -62,19 +62,17 @@
 <p>Lantern approaches this problem in the following ways:</p>
 <ul>
 <li><p><strong>Minimal technology stack:</strong> Lantern was designed to use the fewest amount of software dependencies possible. Each dependency is cross-platform open source software that can run on any machine.</p></li>
-<li><p><strong>Multiformat static outputs:</strong> Lantern generates static HTML, PDF, EPUB, and DOCX files that can be distributed by web hosting service without setting up any databases, server-side application software, or content management systems.</p></li>
+<li><p><strong>Multiformat static outputs:</strong> Lantern generates static HTML, PDF, EPUB, and DOCX files that can be distributed by web hosting service without setting up any databases, server-side application software, or content management systems. These files can also be added to preservation systems in compressed or uncompressed formats.</p></li>
 <li><p><strong>Non-proprietary:</strong> Lantern teaches the value of non-proprietary plain text documents for accessibility and preservation.</p></li>
-<li><p><strong>Portability:</strong> Lantern is available on the web, in the form of a GitHub repository, or as a standalone production environment, where users can install and run the programs on their own. This gives librarians the assurance that they do not need to rely on any third-party vendor to produce multi-format OER.</p></li>
+<li><p><strong>Portability:</strong> Lantern can be used the web, in the form of a GitHub repository, or as part of a standalone production environment, where users can install and run the required programs on their own.</p></li>
 <li><p><strong>Free:</strong> Lantern is distributed for free and under an open license. The first edition of Lantern is available on GitHub and assumes that the user has created a free GitHub account, but Lantern itself can be <a href="https://github.com/nulib-oer/lantern/archive/refs/heads/main.zip">downloaded as a .zip file</a> and used without a GitHub account by anyone.</p></li>
-<li><p><strong>Transferable skills:</strong> We make no promises that Lantern will be available and usable forever. We do, however, believe that the skills and knowledge introduced in Lantern’s documentation provide value to librarians working on a variety of text-based web and digital projects.</p></li>
+<li><p><strong>Transferable skills:</strong> We make no promises that Lantern will be available and usable forever. We do, however, believe that the skills and knowledge introduced in Lantern’s workflow are applicable to a variety of web and digital projects.</p></li>
 </ul>
 <p>With Lantern, we hope to demystify a few developer tools (text editors, GitHub, and open-source software) for beginners interested in digital publishing by connecting these technologies to concepts, such as metadata, preservation, and information accessibility.</p>
 <h3 id="enduring-and-barrier-free-access-to-information">Enduring and Barrier-free Access to Information</h3>
-<p>Lantern was inspired by <em>minimal computing</em>. Minimal computing refers to “computing done under some set of significant constraints of hardware, software, education, network capacity, power, or other factors.” For Lantern, we decided to set constraints on our technology choices to minimize costs and technical obsolescence for the preservation and dissemination of digital, educational materials.</p>
+<p>Lantern was inspired by <em>minimal computing</em>. Minimal computing refers to “computing done under some set of significant constraints of hardware, software, education, network capacity, power, or other factors” <span class="citation" data-cites="noauthor_what_nodate">(<a href="#ref-noauthor_what_nodate" role="doc-biblioref"><span>“What Is <span>Minimal</span> <span>Computing</span>?”</span> n.d.</a>)</span>. For Lantern, we decided to set constraints on our technology choices to minimize costs and technical obsolescence for the preservation and dissemination of digital, educational materials.</p>
 <p>Lantern’s emphasis on multiformat static outputs, non-proprietary file formats, portability, and free-of-charge software are intended to support ARL’s commitment to enduring and barrier-free access to information. Markdown is an excellent choice for this goal. We use it as the source format from which we can generate PDF, HTML, and EPUB versions of the OER. Here is an example of Markdown source code:</p>
-<pre><code># Chapter Title
-
-Introductory paragraph text with **bold** and *italic* text.
+<pre><code>Introductory paragraph text with **bold** and *italic* text.
 
 ## Section Heading
 
@@ -88,11 +86,11 @@ Another paragraph, but with a [link to a website](https://example.com).
 - list item
 - list item</code></pre>
 <blockquote>
-<p>The idea is to identify logical structures in your document (a title, sections, subsections, footnotes, etc.), mark them with some unobtrusive characters, and then “compile” the resulting text with a typesetting interpreter which will format the document consistently, according to a specified style. ---Dennis Tenen and Grant Wythoff, "<a href="https://programminghistorian.org/en/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown">Sustainable Authorship in Plain Text using Pandoc and Markdown</a>"</p>
+<p>The idea is to identify logical structures in your document (a title, sections, subsections, footnotes, etc.), mark them with some unobtrusive characters, and then “compile” the resulting text with a typesetting interpreter which will format the document consistently, according to a specified style. —<span class="citation" data-cites="tenen_sustainable_2014">(<a href="#ref-tenen_sustainable_2014" role="doc-biblioref">Tenen and Wythoff 2014</a>)</span></p>
 </blockquote>
 <p><a href="https://github.com/nulib-oer/lantern/wiki">Lantern's documentation</a> walks users through the conversion and Markdown typesetting process. The basic workflow can be completed entirely online, using only a web browser and free a GitHub.com account. No installation of any software is required. Most users go from manuscript to published OER in an hour.</p>
 <p>While the basic workflow relies on GitHub to perform most of the processing and hosting work, Lantern can be downloaded and used on any operating system, removing GitHub as a dependency. Users who opt to run Lantern on their own machines will have to install some software on their own. Publishing the OER without GitHub requires access to a basic web hosting service. Since Lantern produces static HTML, there are numerous free hosting options available, such as <a href="https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&amp;awsf.Free%20Tier%20Types=*all&amp;awsf.Free%20Tier%20Categories=*all">Amazon Web Services (free tier)</a> and <a href="https://app.netlify.com/drop">Netlify</a>.</p>
-<p>Upon completing an OER project with Lantern, users will have a website, PDF, EPUB, and a source directory of plain text files for dissemination and preservation of the content.</p>
+<p>Upon completing an OER project with Lantern, users will have the files for a website, PDF, EPUB, DOCX, and a source directory of plain text files for dissemination and preservation of the content.</p>
 <h3 id="librarian-review-panel">Librarian Review Panel</h3>
 <p>We wanted to make sure that Lantern, as an idea, was worth developing further. We assembled a panel of six librarians at academic libraries around the country to test and review an early version of Lantern. Each librarian was paid a stipend to review the documentation, complete two tutorials, and discuss their experiences. Some quotes from our interviews:</p>
 <blockquote>
@@ -100,30 +98,31 @@ Another paragraph, but with a [link to a website](https://example.com).
 <p>“With Lantern, OER creation is made very simple. I could follow along and actually get a textbook produced.” -Kathy Clark, Director, Phillips Library, Aurora University</p>
 <p>“With Lantern, you can take files that someone gives you and create a website without having to do anything, really. I could take a 300-page Word document textbook and easily turn it into a website." -Tim Fluhr, Head of Library Services, Illinois Institute of Technology</p>
 </blockquote>
+<p>This process generated numerous great ideas, resulting in a major overhaul of the original documentation and workflow. For this iteration of <em>Lantern</em>, we provide documentation for the “GitHub workflow” and minimal guidance on the “Desktop workflow” (i.e. standalone environment, <em>without</em> GitHub). Future iterations will provide more helpful instruction on using Lantern in a stanadlone production environment on the user’s computer.</p>
 <h3 id="deliverables">Deliverables</h3>
 <p>We produced the following items with ARL grant support:</p>
 <ul>
-<li><p>GitHub repository template for creating and publishing an OER textbook</p></li>
-<li><p>Documentation containing instructions, guides, and recommended resources</p></li>
-<li><p>Extensible templates for HTML, PDF, and EPUB output formats</p></li>
-<li><p>Scripts for converting from Microsoft Word to Markdown and Markdown to various output formats</p></li>
+<li><a href="https://github.com/nulib-oer/lantern">GitHub repository template</a> for creating and publishing an OER textbook</li>
+<li><a href="https://github.com/nulib-oer/lantern/wiki/">Documentation</a> containing instructions, guides, and recommended resources</li>
+<li>Extensible <a href="https://github.com/nulib-oer/lantern/tree/main/templates">templates</a> for HTML, PDF, and EPUB output formats</li>
+<li><a href="https://github.com/nulib-oer/lantern/blob/main/lantern.sh">Scripts</a> for converting from Microsoft Word to Markdown and Markdown to various output formats</li>
 </ul>
 <p>In addition to the above, our work involved:</p>
 <ul>
-<li><p>The creation of Lantern user personas</p></li>
-<li><p>In-depth user testing and interviews with six librarians</p></li>
-<li><p>An accessibility audit of the project website and output templates</p></li>
-<li><p>Creation of a logo and custom book cover templates</p></li>
+<li>The creation of Lantern user personas</li>
+<li>In-depth user testing and interviews with six librarians</li>
+<li>An accessibility audit of the project website and output templates</li>
+<li>Creation of a logo and custom book cover templates</li>
 </ul>
 <h3 id="scalability">Scalability</h3>
-<p>Lantern is designed to be a template for using <a href="https://pandoc.org/">Pandoc</a> as a publishing tool. Pandoc is a popular document converter that can handle dozens of file formats. While powerful, Pandoc can be challenging to learn without a strong familiarity with command line programs and plain text formats. Lantern provides the fundamentals (instructions, explanations, and templates) from which users can explore numerous customizations for their projects. Our hope is that Lantern can be used as-is for open textbook projects, but also be modified for a variety of text-based digital web projects.</p>
+<p>Lantern is designed to be a template for using <a href="https://pandoc.org/">Pandoc</a> as a publishing tool. Pandoc is a popular document converter that can handle dozens of file formats. While powerful, Pandoc can be challenging to learn without a strong familiarity with command line programs and markup languages (like HTML). Lantern provides the fundamentals (instructions, explanations, and templates) from which users can explore numerous customizations for their projects. Our hope is that Lantern can be used as-is for open textbook projects, but also be modified for a variety of text-based digital web projects.</p>
 <p>We have ideas on how Lantern could be used by content creators beyond the open textbook paradigm. While the primary audience is currently librarians and the primary output is OER, Lantern’s methods could be used to easily turn meeting notes, slide decks, conference proceedings, presentations, personal writing projects and more into static websites and PDFs. In other words, we can see how the variety of use cases could expand Lantern’s use beyond its original intention.</p>
 <h3 id="sustainability">Sustainability</h3>
 <p>We have just started using Lantern on OER projects at Northwestern University, so it is too soon to tell if Lantern as a software is sustainable. We, personally, are committed to using and maintaining Lantern on Northwestern OER projects for as long as Lantern meets the needs of our OER authors.</p>
-<p>We are confident, however, that the publication outputs produced by Lantern can be sustained in terms of access and preservation by libraries. Lantern outputs produce multiple formats (Markdown, HTML, PDF, EPUB, and DOCX) as static files. The flexibility of multiple, non-proprietary output formats gives librarians some assurances future software will be able to read and compile the files for use.</p>
+<p>We are confident, however, that the publication outputs produced by Lantern can be sustained in terms of access and preservation by libraries. Lantern outputs produce multiple formats (Markdown, HTML, PDF, EPUB, and DOCX) as static files. The flexibility of multiple, non-proprietary output formats gives librarians some assurances future software will be able to read and compile the files for later use.</p>
 <h3 id="future">Future</h3>
 <p>We have three priorities for Lantern: (1) use Lantern to publish OER textbooks by Northwestern University authors, (2) extend Lantern to support more use cases, and (3) promote Lantern at academic librarian conferences.</p>
-<p>First, we are currently using Lantern on OER projects Northwestern University Libraries supports, developing and releasing new features as needed. We began by migrating two OER projects from <a href="https://bookdown.org/">Bookdown</a> to Lantern<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: <a href="https://emps.northwestern.pub/"><strong><em>Empirical Methods in Political Science: An Introduction</em></strong></a> by Jean Clipperton and <strong><em>Introduction to Material Science and Engineering</em></strong> by Kenneth Shull, Jonathan Emery, and Jacob Kelter.</p>
+<p>First, we are currently using Lantern on OER projects Northwestern University Libraries supports, developing and releasing new features as needed (such as full-text search). We began by migrating two OER projects from <a href="https://bookdown.org/">Bookdown</a> to Lantern<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: <a href="https://emps.northwestern.pub/"><strong><em>Empirical Methods in Political Science: An Introduction</em></strong></a> by Jean Clipperton and <strong><em>Introduction to Material Science and Engineering</em></strong> by Kenneth Shull, Jonathan Emery, and Jacob Kelter.</p>
 <p>Second, we were thrilled to discover new use cases for Lantern from the Librarian Review Panel interviews, including:</p>
 <ul>
 <li><p><em>Convert LaTeX to EPUB:</em> LaTeX is a popular typesetting language for STEM disciplines, but PDFs generated from LaTeX are not accessible. EPUB, however, is a more accessible format than LaTeX and PDF. Lantern could be extended to support a workflow that generates EPUB from LaTeX source.</p></li>
@@ -131,6 +130,15 @@ Another paragraph, but with a [link to a website](https://example.com).
 </ul>
 <p>Third, we will be promoting Lantern at several academic librarian conferences in the spring and summer of 2022. We hope to connect with potential users on GitHub. Lantern users who have questions can use the <a href="https://github.com/nulib-oer/lantern/discussions">discussion forum</a> or <a href="https://github.com/nulib-oer/lantern/issues">issue tracker</a> to report a bug or request a feature.</p>
 <p>We believe that Lantern is aligned with the movement working toward <a href="https://investinopen.org/about/">an open infrastructure for scholarly communication</a> and has the potential to be an important option for <a href="https://mindthegap.pubpub.org/">open source publishing tools</a>. We hope Lantern can provide an on-ramp to more librarians interested in applying minimal computing techniques to open education initiatives.</p>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-tenen_sustainable_2014" class="csl-entry" role="doc-biblioentry">
+Tenen, Dennis, and Grant Wythoff. 2014. <span>“Sustainable <span>Authorship</span> in <span>Plain</span> <span>Text</span> Using <span>Pandoc</span> and <span>Markdown</span>.”</span> <em>Programming Historian</em>. <a href="https://doi.org/10.46430/phen0041">https://doi.org/10.46430/phen0041</a>.
+</div>
+<div id="ref-noauthor_what_nodate" class="csl-entry" role="doc-biblioentry">
+<span>“What Is <span>Minimal</span> <span>Computing</span>?”</span> n.d. <em>Minimal Computing: A Working Group of GO::DH</em>. Accessed January 26, 2022. <a href="https://go-dh.github.io/mincomp/about/">https://go-dh.github.io/mincomp/about/</a>.
+</div>
+</div>
 <section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
