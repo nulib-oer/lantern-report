@@ -111,3 +111,8 @@ Third, we will be promoting Lantern at several academic librarian conferences in
 We believe that Lantern is aligned with the movement working toward [an open infrastructure for scholarly communication](https://investinopen.org/about/) and has the potential to be an important option for [open source publishing tools](https://mindthegap.pubpub.org/). We hope Lantern can provide an on-ramp to more librarians interested in applying minimal computing techniques to open education initiatives.
 
 [^1]: Bookdown is a major influence for the development of Lantern. We strongly recommend Bookdown to any users who are familiar with the R programming language. We developed Lantern as an alternative to Bookdown in order to provide a similar option to user who are unfamiliar with the R programming language (and therefore do not need the features Bookdown provides to R users).
+
+## References
+
+::: {#refs}
+:::

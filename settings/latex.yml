@@ -10,7 +10,7 @@ from: markdown
 to: latex
 
 resource-path: ["images"]
-template: templates/lantern.latex.tex
+template: templates/pandoc.latex.tex
 standalone: true
 
 # table of contents
@@ -36,13 +36,30 @@ pdf-engine-opts:
   - "-shell-escape"
 variables:
   documentclass: book # book, report, article, proc
-  classoption: openany # openright, openany
-#  fontfamily: libertinus
-#  fontfamilyoptions:
-#    - osf
-#    - p
   fontsize: 11pt # 10pt (default), 11pt, 12pt
+  mainfont: TeX Gyre Heros
+  sansfont:
+  monofont:
+  mathfont:
+  CJKmainfont:
   column_number: onecolumn # onecolumn, twocolumn
+  colorlinks: true
+  linkcolor: purple
+  urlcolor: purple
+  classoption: 
+    - oneside 
+    - openany
+  paper:
+  # available units: in, cm, or mm
+  # default creates A4 page size, > 150 pages long
+    width: 8.27in
+    height: 11.69in
+    gutter: 1in
+    margin:
+      top: 1in
+      bottom: 1in
+      left: 1in
+      right: 1in
 
 wrap: auto
 columns: 78

@@ -6,6 +6,7 @@ toc-title: "Contents"
 reference-section-title: "References" 
 link-citations: true
 metadata: false
+toc-page: false
 
 # download settings
 

@@ -12,9 +12,9 @@ $endif$
 $if(fontsize)$
   $fontsize$,
 $endif$
-$if(papersize)$
-  $papersize$paper,
-$endif$
+%$if(papersize)$
+%  $papersize$paper,
+%$endif$
 $if(beamer)$
   ignorenonframetext,
 $if(handout)$
@@ -28,6 +28,28 @@ $for(classoption)$
   $classoption$$sep$,
 $endfor$
 ]{$documentclass$}
+
+% Lantern variables
+
+\newcommand{\booklicense}{\href{$copyright.license-uri$}{$copyright.license$}}
+
+% The following dimensions specify 4.75" X 7.5" content on 6 3/8" by 9 1/4"
+% paper. The paper width and height can be tweaked as required and the content
+% should size to fit within the margins accordingly.
+%
+% The (inside) bindingoffset should be larger for books with more pages. Some
+% standard recommended sizes are .375in minimum up to 1in for 600+ page books.
+% Sizes .75in and .875in are also recommended roughly at 150 and 400 pages.
+\usepackage[bindingoffset=$paper.gutter$,
+            left=$paper.margin.left$, 
+            right=$paper.margin.right$,
+            top=$paper.margin.top$, 
+            bottom=$paper.margin.bottom$,
+            paperwidth=$paper.width$, 
+            paperheight=$paper.height$]{geometry}
+% Here is an alternative geometry for reading on letter size paper:
+% \usepackage[margin=.75in, paperwidth=8.5in, paperheight=11in]{geometry}
+
 $if(beamer)$
 $if(background-image)$
 \usebackgroundtemplate{%
@@ -213,17 +235,13 @@ $endif$
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-$if(title-meta)$
-  pdftitle={$title-meta$},
-$endif$
-$if(author-meta)$
-  pdfauthor={$author-meta$},
-$endif$
+  pdftitle={$title$},
+  pdfauthor={$for(author)$$author.name$$sep$ \and $endfor$},
 $if(lang)$
   pdflang={$lang$},
 $endif$
 $if(subject)$
-  pdfsubject={$subject$},
+  pdfsubject={$for(subjects)$$subjects$$sep$, $endfor$},
 $endif$
 $if(keywords)$
   pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
@@ -437,98 +455,220 @@ $if(logo)$
 $endif$
 $endif$
 
+% Content Starts Here
+
 \begin{document}
-$if(has-frontmatter)$
 \frontmatter
-$endif$
-$if(title)$
-$if(beamer)$
-\frame{\titlepage}
-$else$
-\maketitle
-$endif$
-$if(abstract)$
-\begin{abstract}
-$abstract$
-\end{abstract}
-$endif$
+
+% ---- Half Title Page ----
+% current geometry will be restored after title page
+\newgeometry{top=5in,bottom=.5in}
+\begin{titlepage}
+\begin{flushleft}
+
+% Title
+\textbf{\fontsize{48}{54}\selectfont $title$ \\}
+{\color{gray}{\large $subtitle$}}
+
+% Draw a line 2pt high
+\par\noindent\rule{1in}{2pt}\\
+
+% authors
+
+\textit{$for(author)$$if(author.name)$$author.name$$else$$author$$endif$$sep$, $endfor$}\\
+
+\vspace{1in}
+$description$
+
+% \vspace{\fill}
+\end{flushleft}
+
+$if(publisher)$
+\begin{center}
+  %\includegraphics{booksvg.pdf}\\[4pt]
+  \fontfamily{lmtt}\small{$publisher.name$\\
+  $publisher.location$\\
+  $publisher.website$}
+\end{center}
+$endif$  
+\end{titlepage}
+\restoregeometry
+% ---- End of Half Title Page ----
+
+$if(metadata)$
+% Do not show page numbers on colophon page
+\thispagestyle{empty}
+
+\begin{flushleft}
+
+\textbf{Copyright \textcopyright{} $publication-year$  $copyright.holder$\\
+License: \booklicense}\\[11pt] 
+
+$if(copyright.exceptions)$
+\textbf{Exceptions} \\
+
+Except where otherwise noted, this book is licensed under a $copyright.license$. To view a copy of this license, visit $copyright.license-uri$
+
+The following material is excluded from the license: 
+
+\begin{itemize}
+  $for(copyright.exceptions)$
+  \item $copyright.exceptions$
+  $endfor$
+\end{itemize}
+
+$copyright.exceptions$
 $endif$
 
-$for(include-before)$
-$include-before$
+For permissions beyond the scope of this license, visit $publisher.website$
 
-$endfor$
-$if(toc)$
-$if(toc-title)$
-\renewcommand*\contentsname{$toc-title$}
+\vspace*{\fill}
+
+\begin{description}
+  \item[Recommended Citation] \hfill \\ $copyright.attribution$
+  \item[Publisher] \hfill \\ $publisher.name$, $publisher.location$
+  \item[Date] \hfill \\ $publication-year$
+  $if(website)$
+  \item[Website] \hfill \\ $website$
+  $endif$
+  $if(isbn-p)$
+  \item[ISBN] \hfill \\ $isbn-p$ pbk.
+  $endif$
+  $if(isbn-e)$
+  \item[eISBN] \hfill \\ $isbn-e$
+  $endif$
+  $if(doi)$
+  \item[DOI] \hfill \\ \href{https://doi.org/$doi$}{$doi$}
+  $endif$
+  \item[Subjects] \hfill \\ $for(subjects)$$subjects$$sep$, $endfor$
+  \item[keywords] \hfill \\ $for(keywords)$$keywords$$sep$, $endfor$
+  $if(contributor)$
+  \item[Contributors] \hfill \\ $for(contributor)$$contributor$$sep$, $endfor$
+  $endif$
+
+\end{description}
+
+$if(publisher.disclaimer)$
+\textbf{Disclaimer} \\
+  $publisher.disclaimer$
 $endif$
-$if(beamer)$
-\begin{frame}[allowframebreaks]
-$if(toc-title)$
-  \frametitle{$toc-title$}
+
+\vspace*{\fill}
+
+This book was typeset using \LaTeX{} software and processed with \href{https://pandoc.org}{Pandoc} using the \href{http://lantern.northwestern.pub}{Lantern} publishing workflow.\\
+
+\end{flushleft}
+
 $endif$
-  \tableofcontents[hideallsubsections]
-\end{frame}
-$else$
-{
-$if(colorlinks)$
-\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
-$endif$
-\setcounter{tocdepth}{$toc-depth$}
-\tableofcontents
-}
-$endif$
-$endif$
-$if(lof)$
-\listoffigures
-$endif$
-$if(lot)$
-\listoftables
-$endif$
-$if(linestretch)$
-\setstretch{$linestretch$}
-$endif$
-$if(has-frontmatter)$
+
+% A title page resets the page # to 1, but the second title page
+% was actually page 3. So add two to page counter.
+%\addtocounter{page}{2}
+
+% The asterisk excludes chapter from the table of contents.
+
+% Three-level Table of Contents
+%\setcounter{tocdepth}{3}
+%\tableofcontents
+
 \mainmatter
-$endif$
+
 $body$
 
-$if(has-frontmatter)$
 \backmatter
-$endif$
-$if(natbib)$
-$if(bibliography)$
-$if(biblio-title)$
-$if(has-chapters)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
-$if(beamer)$
-\begin{frame}[allowframebreaks]{$biblio-title$}
-  \bibliographytrue
-$endif$
-  \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-$if(beamer)$
-\end{frame}
-$endif$
-
-$endif$
-$endif$
-$if(biblatex)$
-$if(beamer)$
-\begin{frame}[allowframebreaks]{$biblio-title$}
-  \bibliographytrue
-  \printbibliography[heading=none]
-\end{frame}
-$else$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-$endif$
-
-$endif$
-$for(include-after)$
-$include-after$
-
-$endfor$
 \end{document}
+
+
+% from pandoc LaTeX template
+
+%$if(title)$
+%$if(beamer)$
+%\frame{\titlepage}
+%$else$
+%\maketitle
+%$endif$
+%%$if(abstract)$
+%%\begin{abstract}
+%%$abstract$
+%%\end{abstract}
+%%$endif$
+%%$endif$
+%
+%$for(include-before)$
+%$include-before$
+%
+%$endfor$
+%$if(toc)$
+%$if(toc-title)$
+%\renewcommand*\contentsname{$toc-title$}
+%$endif$
+%$if(beamer)$
+%\begin{frame}[allowframebreaks]
+%$if(toc-title)$
+%  \frametitle{$toc-title$}
+%$endif$
+%  \tableofcontents[hideallsubsections]
+%\end{frame}
+%$else$
+%{
+%$if(colorlinks)$
+%\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+%$endif$
+%\setcounter{tocdepth}{$toc-depth$}
+%\tableofcontents
+%}
+%$endif$
+%$endif$
+%$if(lof)$
+%\listoffigures
+%$endif$
+%$if(lot)$
+%\listoftables
+%$endif$
+%$if(linestretch)$
+%\setstretch{$linestretch$}
+%$endif$
+%$if(has-frontmatter)$
+%\mainmatter
+%$endif$
+%$body$
+%
+%$if(has-frontmatter)$
+%\backmatter
+%$endif$
+%$if(natbib)$
+%$if(bibliography)$
+%$if(biblio-title)$
+%$if(has-chapters)$
+%\renewcommand\bibname{$biblio-title$}
+%$else$
+%\renewcommand\refname{$biblio-title$}
+%$endif$
+%$endif$
+%$if(beamer)$
+%\begin{frame}[allowframebreaks]{$biblio-title$}
+%  \bibliographytrue
+%$endif$
+%  \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+%$if(beamer)$
+%\end{frame}
+%$endif$
+%
+%$endif$
+%$endif$
+%$if(biblatex)$
+%$if(beamer)$
+%\begin{frame}[allowframebreaks]{$biblio-title$}
+%  \bibliographytrue
+%  \printbibliography[heading=none]
+%\end{frame}
+%$else$
+%\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+%$endif$
+%
+%$endif$
+%$for(include-after)$
+%$include-after$
+%
+%$endfor$
+%\end{document}
