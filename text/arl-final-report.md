@@ -2,7 +2,7 @@
 
 Northwestern University Libraries was awarded a grant from [the Association of Research Libraries Venture Fund](https://www.arl.org/news/arl-launches-venture-fund-to-support-research-and-development-in-member-libraries-proposals-due-february-28/) to develop a digital publishing toolkit for librarians who support open educational resources (OER) publishing on their campuses. This report documents the outcomes and future for our project, which we've named *Lantern*, available here: <https://github.com/nulib-oer/lantern>
 
-Lantern is prototype that applies *minimal computing* principles to the production, hosting, and maintenance of OER. At its core, Lantern is a script, template, and documentation that makes it easier to use [Pandoc](http://pandoc.org/) and [GitHub](https://github.com/) to produce and distribute open textbooks in multiple formats, such as HTML, PDF, EPUB, and DOCX. Lantern produces OER content in formats that make it easier to publish, preserve, and reuse by students, faculty, and librarians.
+Lantern is a prototype that applies *minimal computing* principles to the production, hosting, and maintenance of OER. At its core, Lantern is a script, template, and documentation that makes it easier to use [Pandoc](http://pandoc.org/) and [GitHub](https://github.com/) to produce and distribute open textbooks in multiple formats, such as HTML, PDF, EPUB, and DOCX. Lantern produces OER content in formats that make it easier to publish, preserve, and reuse by students, faculty, and librarians.
 
 ## Why did we create Lantern? 
 
@@ -16,9 +16,9 @@ Lantern approaches this problem in the following ways:
 
 -   **Non-proprietary:** Lantern teaches the value of non-proprietary plain text documents for accessibility and preservation.
 
--   **Portability:** Lantern can be used the web, in the form of a GitHub repository, or as part of a standalone production environment, where users can install and run the required programs on their own. 
+-   **Portable:** Lantern can be used on the web, in the form of a GitHub repository, or as part of a standalone production environment, where users can install and run the required programs on their own. 
 
--   **Free:** Lantern is distributed for free and under an open license. The first edition of Lantern is available on GitHub and assumes that the user has created a free GitHub account, but Lantern itself can be [downloaded as a .zip file](https://github.com/nulib-oer/lantern/archive/refs/heads/main.zip) and used without a GitHub account by anyone.
+-   **Free:** Lantern is distributed for free under an open license. The first edition of Lantern is available on GitHub and assumes that the user has created a free GitHub account, but Lantern itself can be [downloaded as a .zip file](https://github.com/nulib-oer/lantern/archive/refs/heads/main.zip) and used without a GitHub account by anyone.
 
 -   **Transferable skills:** We make no promises that Lantern will be available and usable forever. We do, however, believe that the skills and knowledge introduced in Lantern's workflow are applicable to a variety of web and digital projects.
 
@@ -58,11 +58,11 @@ Upon completing an OER project with Lantern, users will have the files for a web
 
 We wanted to make sure that Lantern, as an idea, was worth developing further. We assembled a panel of six librarians at academic libraries around the country to test and review an early version of Lantern. Each librarian was paid a stipend to review the documentation, complete two tutorials, and discuss their experiences. Some quotes from our interviews:
 
-> \"You\'ve provided an environment in which librarians who are not programmers could experiment with using markdown. There\'s a lot that\'s unfamiliar, and I feel like what you\'ve done is to make it more accessible to people like me.\" -- Anita Walz, Assistant Director of Open Education, Virginia Tech University Libraries
+> \"You\'ve provided an environment in which librarians who are not programmers could experiment with using markdown. There\'s a lot that\'s unfamiliar, and I feel like what you\'ve done is to make it more accessible to people like me.\" **--Anita Walz, Assistant Director of Open Education, Virginia Tech University Libraries**
 >
-> "With Lantern, OER creation is made very simple. I could follow along and actually get a textbook produced." -Kathy Clark, Director, Phillips Library, Aurora University
+> "With Lantern, OER creation is made very simple. I could follow along and actually get a textbook produced." **--Kathy Clark, Director, Phillips Library, Aurora University**
 >
-> "With Lantern, you can take files that someone gives you and create a website without having to do anything, really. I could take a 300-page Word document textbook and easily turn it into a website.\" -Tim Fluhr, Head of Library Services, Illinois Institute of Technology
+> "With Lantern, you can take files that someone gives you and create a website without having to do anything, really. I could take a 300-page Word document textbook and easily turn it into a website.\" **--Tim Fluhr, Head of Library Services, Illinois Institute of Technology**
 
 This process generated numerous great ideas, resulting in a major overhaul of the original documentation and workflow. For this iteration of _Lantern_, we provide documentation for the "GitHub workflow" and minimal guidance on the "Desktop workflow" (i.e. standalone environment, _without_ GitHub). Future iterations will provide more helpful instruction on using Lantern in a stanadlone production environment on the user's computer. 
 
@@ -98,7 +98,7 @@ We are confident, however, that the publication outputs produced by Lantern can 
 
 We have three priorities for Lantern: (1) use Lantern to publish OER textbooks by Northwestern University authors, (2) extend Lantern to support more use cases, and (3) promote Lantern at academic librarian conferences.
 
-First, we are currently using Lantern on OER projects Northwestern University Libraries supports, developing and releasing new features as needed (such as full-text search). We began by migrating two OER projects from [Bookdown](https://bookdown.org/) to Lantern[^1]: [***Empirical Methods in Political Science: An Introduction***](https://emps.northwestern.pub/) by Jean Clipperton and ***Introduction to Material Science and Engineering*** by Kenneth Shull, Jonathan Emery, and Jacob Kelter.
+First, we are currently using Lantern on OER projects that Northwestern University Libraries supports, and developing and releasing new features as needed (such as full-text search). We began by migrating two OER projects from [Bookdown](https://bookdown.org/) to Lantern[^1]: [***Empirical Methods in Political Science: An Introduction***](https://emps.northwestern.pub/) by Jean Clipperton and ***Introduction to Material Science and Engineering*** by Kenneth Shull, Jonathan Emery, and Jacob Kelter.
 
 Second, we were thrilled to discover new use cases for Lantern from the Librarian Review Panel interviews, including:
 
